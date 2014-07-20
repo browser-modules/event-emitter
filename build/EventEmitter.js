@@ -92,6 +92,14 @@ EventEmitter.prototype.off = function (type, fn) {
 	}
 };
 
+/**
+ * Triggers an event of a specific type, with any additional payload 
+ * passed.
+ *
+ * @param {string} type - the type of event to emit
+ * @param {...(object|number|string)} payload - Any additional arguments
+ *	will be sent to the handlers for this event
+ */
 EventEmitter.prototype.emit = function (type) {
 	var payload = Array.prototype.slice.call(arguments, 1),
 		fns = this.listeners[type] || [],
@@ -102,6 +110,5 @@ EventEmitter.prototype.emit = function (type) {
 	}
 };
 
-/* global module */
 module.exports = EventEmitter;
 },{}]},{},[1])

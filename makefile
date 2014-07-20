@@ -1,10 +1,11 @@
 BROWSERIFY=./node_modules/.bin/browserify
-DOCME=./node_modules/.bin/docme
+DOX_GITHUB=./node_modules/.bin/dox-github
+DOX=./node_modules/.bin/dox
 
 all: build/EventEmitter.js README.md
 
-README.md: src/EventEmitter.js
-	$(DOCME) README.md
+README.md: build/EventEmitter.js
+	$(DOX) < $< | $(DOX_GITHUB) > $@
 
 build/EventEmitter.js: src/EventEmitter.js
 	mkdir -p $(@D)
@@ -16,5 +17,6 @@ debug/EventEmitter.js: src/EventEmitter.js
 
 clean:
 	rm -rf build/*
+	rm README.md
 
 .PHONY: all clean

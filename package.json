@@ -5,7 +5,8 @@
   "main": "build/EventEmitter.js",
   "dependencies": {
     "browserify": "~4.2.3",
-    "docme": "^0.2.1"
+    "dox-github": "0.0.2",
+    "dox": "^0.4.6"
   },
   "devDependencies": {},
   "scripts": {
